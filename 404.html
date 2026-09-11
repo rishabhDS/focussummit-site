@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join Focus: Summit Together</title>
+  <meta name="apple-itunes-app" content="app-id=REPLACE_WITH_APP_STORE_ID">
+  <link rel="stylesheet" href="/join/join.css">
+</head>
+<body>
+  <main class="card" role="main">
+    <p class="eyebrow">Focus: Summit Together</p>
+    <h1 id="headline">A friend invited you to focus together</h1>
+    <p class="lead">Focus with me on Focus: Summit Together — starting now. Your minutes climb your own mountain; the time is shared.</p>
+    <section class="code-block" aria-labelledby="code-label">
+      <p id="code-label" class="label">Your invite code</p>
+      <p id="code" class="code" aria-live="polite">······</p>
+      <p class="hint">Open Focus: Summit Together → <strong>Focus with a friend</strong> → <strong>Have a code?</strong> and paste this code.</p>
+    </section>
+    <section class="stores" aria-label="Get the app">
+      <a class="badge badge-apple" id="appstore" href="https://apps.apple.com/app/idREPLACE_WITH_APP_STORE_ID" rel="noopener">
+        <span><small>Download on the</small>App Store</span>
+      </a>
+    </section>
+    <p class="fine">Already installed? <a id="open-app" href="#">Open in the app</a>.</p>
+  </main>
+  <script>
+    (function () {
+      var parts = location.pathname.split('/').filter(Boolean);
+      var host = (parts[0] || '').toLowerCase();
+      var seg = parts[1] || (host === 'join' || host === 'permit' ? '' : parts[0]) || '';
+      if (host === 'join' || host === 'permit') {
+        seg = parts[1] || '';
+      }
+      var code = String(seg).toUpperCase().replace(/[^0-9A-Z]/g, '').slice(0, 8);
+      var el = document.getElementById('code');
+      if (code.length >= 6) {
+        el.textContent = code.slice(0, 3) + '-' + code.slice(3);
+        document.getElementById('open-app').href = 'focussummit://join/' + code;
+        document.title = 'Join ' + code + ' on Focus: Summit Together';
+      } else {
+        el.textContent = '—';
+        document.querySelector('.hint').textContent =
+          'Ask your friend to send the link again.';
+      }
+    })();
+  </script>
+</body>
+</html>

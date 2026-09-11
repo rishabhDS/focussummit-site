@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "95UVT3W6N4.com.focussummit.app",
+        "paths": ["/join/*", "/permit/*"]
+      }
+    ]
+  }
+}
