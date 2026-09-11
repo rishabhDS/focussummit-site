@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Join Focus: Summit Together</title>
   <meta name="apple-itunes-app" content="app-id=REPLACE_WITH_APP_STORE_ID">
-  <link rel="stylesheet" href="/join/join.css">
+  <link rel="stylesheet" href="../join/join.css">
 </head>
 <body>
   <main class="card" role="main">
@@ -27,11 +27,15 @@
   <script>
     (function () {
       var parts = location.pathname.split('/').filter(Boolean);
-      var host = (parts[0] || '').toLowerCase();
-      var seg = parts[1] || (host === 'join' || host === 'permit' ? '' : parts[0]) || '';
-      if (host === 'join' || host === 'permit') {
-        seg = parts[1] || '';
+      var seg = '';
+      for (var i = 0; i < parts.length - 1; i++) {
+        var p = String(parts[i]).toLowerCase();
+        if (p === 'join' || p === 'permit') {
+          seg = parts[i + 1] || '';
+          break;
+        }
       }
+      if (!seg) seg = parts[parts.length - 1] || '';
       var code = String(seg).toUpperCase().replace(/[^0-9A-Z]/g, '').slice(0, 8);
       var el = document.getElementById('code');
       if (code.length >= 6) {
