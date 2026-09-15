@@ -15,6 +15,8 @@ Paste these into App Store Connect:
 | Terms of Use | https://rishabhDS.github.io/focussummit-site/terms/ |
 | Support | https://rishabhDS.github.io/focussummit-site/support/ |
 
+Contact (support, privacy, App Review): **tiny.thinkers.ds@gmail.com**
+
 ## Enable Pages (once)
 
 1. **Settings → Pages → Source: GitHub Actions**
